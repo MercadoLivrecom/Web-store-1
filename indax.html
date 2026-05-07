@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Store - Loja Oficial de Telas PHP, Python e HTML</title>
+    <link rel="icon" href="favicon.jpeg" type="image/jpeg">
+    
+    <!-- ✅ Verificação Google Search Console -->
+    <meta name="google-site-verification" content="SEU_TOKEN_GOOGLE_AQUI">
+    
+    <!-- ✅ Segurança & Compatibilidade -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- 🌐 Compartilhamento em Redes Sociais (WhatsApp, Telegram, Facebook, etc.) -->
+    <meta property="og:title" content="Web Store - Loja Oficial de Telas PHP, Python e HTML">
+    <meta property="og:description" content="Loja de vendas oficial com entrega automática. Telas em PHP, Python e HTML. Pagamento seguro e suporte dedicado.">
+    <meta property="og:image" content="https://seusite.com/favicon.jpeg">
+    <meta property="og:url" content="https://seusite.com">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Web Store - Loja Oficial de Telas PHP, Python e HTML">
+    <meta name="twitter:description" content="Loja de vendas oficial com entrega automática. Telas em PHP, Python e HTML. Pagamento seguro e suporte dedicado.">
+    <meta name="twitter:image" content="https://seusite.com/favicon.jpeg">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #0a0a0a; color: #fff; }
+        
+        header { background-color: #000; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 2rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(to right, #FFD700 50%, #FF0000 50%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .lock-icon svg { width: 26px; height: 26px; fill: #FFD700; opacity: 0.85; }
+        
+        .sub-nav { background-color: #000; padding: 10px 24px; display: flex; align-items: center; gap: 18px; border-top: 1px solid #222; }
+        .sub-nav a { color: #b0b0b0; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+        .sub-nav a:hover { color: #FFD700; }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 24px 16px; padding-bottom: 100px; }
+        .aviso-principal { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; color: #fff; }
+        .aviso-secundario { font-size: 0.8rem; color: #999; line-height: 1.5; margin-bottom: 24px; }
+
+        .produtos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        .produto-card { background: #151515; border-radius: 8px; padding: 12px; text-align: center; display: flex; flex-direction: column; gap: 8px; border: 1px solid #222; }
+        .produto-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 6px; background: #222; }
+        .nome-produto { font-size: 0.95rem; font-weight: 600; color: #eee; margin: 0; }
+        .preco-produto { font-size: 0.9rem; color: #FFD700; font-weight: 700; margin: 0; }
+        .btn-comprar { display: block; background: #FF0000; color: #fff; text-decoration: none; padding: 10px 0; border-radius: 6px; font-weight: 600; font-size: 0.85rem; margin-top: 4px; transition: background 0.2s; }
+        .btn-comprar:hover { background: #cc0000; }
+
+        .telegram-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #0088cc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 136, 204, 0.4);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            z-index: 1000;
+            text-decoration: none;
+        }
+        .telegram-float:hover { transform: scale(1.1); box-shadow: 0 6px 16px rgba(0, 136, 204, 0.6); }
+        .telegram-float svg { width: 32px; height: 32px; fill: #fff; }
+
+        footer {
+            background-color: #000;
+            border-top: 1px solid #222;
+            padding: 24px 16px;
+            margin-top: 40px;
+        }
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: center;
+        }
+        .footer-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: #FFD700; }
+        .footer-links span { color: #333; font-size: 0.8rem; }
+        
+        .footer-pix {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .footer-pix img {
+            height: 28px;
+            width: auto;
+            object-fit: contain;
+        }
+        .footer-pix span {
+            font-size: 0.75rem;
+            color: #999;
+        }
+        
+        .footer-servicos {
+            font-size: 0.75rem;
+            color: #aaa;
+            line-height: 1.5;
+            border-top: 1px solid #1a1a1a;
+            padding-top: 12px;
+        }
+        .footer-servicos strong { color: #FFD700; }
+        
+        .footer-aviso {
+            font-size: 0.7rem;
+            color: #666;
+            line-height: 1.5;
+            border-top: 1px solid #1a1a1a;
+            padding-top: 12px;
+        }
+
+        @media (max-width: 480px) {
+            header { padding: 12px 16px; }
+            .logo { font-size: 1.3rem; letter-spacing: 1px; }
+            .lock-icon svg { width: 20px; height: 20px; }
+            .sub-nav { padding: 8px 16px; gap: 14px; }
+            .sub-nav a { font-size: 0.75rem; }
+            .container { padding: 16px 12px; padding-bottom: 100px; }
+            .aviso-principal { font-size: 1rem; }
+            .aviso-secundario { font-size: 0.75rem; }
+            .produtos-grid { gap: 10px; }
+            .produto-card { padding: 10px; }
+            .btn-comprar { font-size: 0.8rem; padding: 8px 0; }
+            .telegram-float { width: 50px; height: 50px; bottom: 15px; right: 15px; }
+            .telegram-float svg { width: 26px; height: 26px; }
+            footer { padding: 16px 12px; }
+            .footer-links { gap: 10px; }
+            .footer-links a, .footer-links span { font-size: 0.7rem; }
+            .footer-pix img { height: 24px; }
+            .footer-pix span { font-size: 0.65rem; }
+            .footer-servicos, .footer-aviso { font-size: 0.65rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Web Store</div>
+        <div class="lock-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 1C8.676 1 6 3.676 6 7v2H4a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V10a1 1 0 0 0-1-1h-2V7c0-3.324-2.676-6-6-6zm0 2c2.276 0 4 1.724 4 4v2H8V7c0-2.276 1.724-4 4-4zm0 10a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/>
+            </svg>
+        </div>
+    </header>
+
+    <nav class="sub-nav">
+        <a href="contato.html">Contato</a>
+        <a href="conteudo-gratis.html">Conteúdo grátis</a>
+        <a href="politicas.html">Políticas</a>
+    </nav>
+
+    <main class="container">
+        <h1 class="aviso-principal">Não realizamos devoluções após a compra. Entrega automática.</h1>
+        <p class="aviso-secundario">
+            Antes de finalizar sua compra, verifique se o produto possui suporte. 
+            Importante: nosso suporte consiste na validação dos arquivos para assegurar seu correto funcionamento. 
+            Não disponibilizamos contas de hospedagem para armazenamento gratuito de arquivos.
+        </p>
+
+        <div class="produtos-grid">
+            <!-- PRODUTO 1 -->
+            <div class="produto-card">
+                <img src="1.webp" alt="Produto 1">
+                <h2 class="nome-produto">bote de login telegram python</h2>
+                <p class="preco-produto">R$ 3,90</p>
+                <a href="https://checkout.transacaoprotegida.com/f52b630f-ba44-4ab2-b0ee-977d214fe08c" class="btn-comprar" target="_blank">Comprar Agora</a>
+            </div>
+
+            <!-- PRODUTO 2 -->
+            <div class="produto-card">
+                <img src="2.webp" alt="Produto 2">
+                <h2 class="nome-produto">aplicativo fake mercado pago</h2>
+                <p class="preco-produto">R$ 9,99</p>
+                <a href="https://checkout.transacaoprotegida.com/4f77abcb-4320-41ea-b445-11974a32e4db" class="btn-comprar" target="_blank">Comprar Agora</a>
+            </div>
+
+            <!-- PRODUTO 3 -->
+            <div class="produto-card">
+                <img src="3.webp" alt="Produto 3">
+                <h2 class="nome-produto">Nome do Produto 3</h2>
+                <p class="preco-produto">R$ 49,90</p>
+                <a href="SEU_LINK_AQUI" class="btn-comprar" target="_blank">Comprar Agora</a>
+            </div>
+
+            <!-- PRODUTO 4 -->
+            <div class="produto-card">
+                <img src="4.webp" alt="Produto 4">
+                <h2 class="nome-produto">Nome do Produto 4</h2>
+                <p class="preco-produto">R$ 49,90</p>
+                <a href="SEU_LINK_AQUI" class="btn-comprar" target="_blank">Comprar Agora</a>
+            </div>
+        </div>
+    </main>
+
+    <a href="https://t.me/CHK_CL1" class="telegram-float" target="_blank" rel="noopener noreferrer" aria-label="Canal do Telegram">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+        </svg>
+    </a>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="contato.html">Contato</a>
+                <span>|</span>
+                <a href="conteudo-gratis.html">Conteúdo grátis</a>
+                <span>|</span>
+                <a href="politicas.html">Políticas</a>
+                <span>|</span>
+                <a href="https://t.me/+uqI6s5efilo3NGRh" target="_blank" rel="noopener">Suporte</a>
+                <span>|</span>
+                <a href="https://t.me/CHK_CL" target="_blank" rel="noopener">@CHK_CL</a>
+                <span>|</span>
+                <a href="https://t.me/CHK_CL1" target="_blank" rel="noopener">Canal Telegram</a>
+            </div>
+            
+            <div class="footer-pix">
+                <img src="pix-bc-logo-4.webp" alt="Pagamento via PIX">
+                <span>Pagamento seguro via PIX, Mercado Pago, Stripe e outras plataformas verificadas</span>
+            </div>
+            
+            <p class="footer-servicos">
+                <strong>Desenvolvimento sob medida:</strong> deseja criar uma página ou tela específica para seu projeto? Entre em contato conosco e negociamos um valor especial.<br>
+                <strong>Hospedagem de arquivos:</strong> serviço de armazenamento e hospedagem de telas/arquivos sob consulta (valor diferenciado via privado).
+            </p>
+            
+            <p class="footer-aviso">
+                Não realizamos devoluções por se tratar de produtos digitais com entrega automática. 
+                Caso não concorde com esta política, solicitamos que encerre sua navegação. 
+                Leia os termos de compra antes de finalizar qualquer pedido. 
+                Para dúvidas, nosso suporte está à disposição. 
+                Prezamos por oferecer conteúdo de qualidade a preços acessíveis.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

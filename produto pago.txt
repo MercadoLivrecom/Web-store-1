@@ -1,0 +1,7 @@
+            <!-- PRODUTO NOVO -->
+            <div class="produto-card">
+                <img src="X.webp" alt="Produto Novo">
+                <h2 class="nome-produto">Nome do Produto</h2>
+                <p class="preco-produto">R$ 00,00</p>
+                <a href="SEU_LINK_AQUI" class="btn-comprar" target="_blank">Comprar Agora</a>
+            </div>

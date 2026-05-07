@@ -1,0 +1,4 @@
+            <div class="file-item">
+                <span class="file-name">NOME_DO_ARQUIVO.zip</span>
+                <a href="SEU_LINK_DE_DOWNLOAD_AQUI" class="download-btn" target="_blank" rel="noopener">Download</a>
+            </div>
